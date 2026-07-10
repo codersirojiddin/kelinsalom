@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dinamik SEO Sarlavha va Tavsif -->
+    <title>{{if .PageTitle}}{{.PageTitle}}{{else}}Kelin Salom Matnlari To'plami — To'liq va Sara She'rlar{{end}}</title>
+    <meta name="description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}O'zbekona to'ylar uchun eng sara, to'liq va an'anaviy kelin salom matnlari. Viloyatlar bo'yicha qulay qidiruv va nusxalash.{{end}}">
+    <meta name="keywords" content="kelin salom, kelin salom sherlari, to'liq kelin salom matni, samarqandcha kelin salom, toshkentcha kelin salom">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Facebook, Telegram, WhatsApp uchun professional ko'rinish) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{if .PageTitle}}{{.PageTitle}}{{else}}Kelin Salom Matnlari To'plami{{end}}">
+    <meta property="og:description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}To'ylar uchun eng sara, to'liq va an'anaviy kelin salom matnlari.{{end}}">
+    <meta property="og:url" content="https://kelinsalom.uz{{.URLPath}}">
+    <meta property="og:site_name" content="KelinSalom.uz">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-area">
+            <h1><a href="/">KELIN SALOM</a></h1>
+            <div class="font-control">
+                <span>Yozuv o'lchami:</span>
+                <button onclick="changeFontSize(2)">A+</button>
+                <button onclick="changeFontSize(-2)">A-</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {{template "content" .}}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 KelinSalom.uz — Onaxonlarimiz uchun maxsus tayyorlandi.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

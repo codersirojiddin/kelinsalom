@@ -1,0 +1,296 @@
+/* 2004-2005 yillardagi klassik kompakt interfeys */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Verdana, Arial, sans-serif; /* Toza sans-serif shriftlar */
+    background-color: #ffffff; /* Orqa fon toza oq */
+    color: #000000;
+    line-height: 1.4;
+    font-size: 14px; /* O'sha davrning ixcham o'lchami */
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Kichik va ixcham Facebook Header */
+header {
+    background-color: #3b5998; /* O'sha mashhur Facebook to'q ko'k rangi */
+    color: #ffffff;
+    padding: 8px 0;
+    border-bottom: 1px solid #1d365d;
+}
+
+.header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header p {
+    font-size: 11px;
+    opacity: 0.8;
+    font-style: italic;
+    display: none; /* Katta ekranda ortiqcha matnni yashiramiz */
+}
+
+/* Shrift o'lchami pulti - ixcham shaklda header ichida */
+.font-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+}
+
+.font-control button {
+    background-color: #f6f6f6;
+    color: #3b5998;
+    border: 1px solid #3b5998;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Klassik Facebook Borderli Filtr paneli */
+.filter-section {
+    background-color: #f7f7f7;
+    padding: 8px;
+    margin: 15px 0;
+    border: 1px solid #d8dfea;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.search-form input, .search-form select {
+    padding: 5px;
+    font-size: 13px;
+    border: 1px solid #8496ba;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Ixcham Ma'lumot Bloklari (Cards) */
+.poem-card {
+    background-color: #ffffff;
+    border: 1px solid #d8dfea;
+    padding: 15px;
+    margin-bottom: 12px;
+}
+
+.poem-card h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #d8dfea;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+}
+
+.poem-card h2 a {
+    color: #3b5998;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.poem-card h2 a:hover {
+    text-decoration: underline;
+}
+
+/* 1. Bosh sahifadagi she'r parchasining shrifti */
+.poem-preview {
+    margin-top: 5px;
+    white-space: pre-line;
+    color: #333333;
+    font-size: 0.95em; /* fixed px o'rniga em qo'ydik, endi tepadagi o'lchamga qarab o'zgaradi */
+}
+
+
+
+.card-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.badge {
+    background-color: #efeff5;
+    color: #3b5998;
+    border: 1px solid #d8dfea;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
+.read-btn {
+    color: #3b5998;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.read-btn:hover {
+    text-decoration: underline;
+}
+
+/* Alohida sahifa */
+.poem-single {
+    background-color: #ffffff;
+    border: 1px solid #d8dfea;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.back-link {
+    font-size: 12px;
+    color: #3b5998;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.poem-page-title {
+    font-size: 18px;
+    color: #3b5998;
+    margin-top: 8px;
+    border-bottom: 1px solid #d8dfea;
+    padding-bottom: 5px;
+}
+
+.badge-large {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 11px;
+    background-color: #efeff5;
+    padding: 2px 5px;
+    border: 1px solid #d8dfea;
+}
+
+/* 2. Alohida sahifadagi TO'LIQ she'r matnining shrifti (onaxonlar o'qiydigan joyi) */
+.poem-full-content {
+    white-space: pre-line;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #d8dfea;
+    font-size: 1.2em; /* Bu ham tepadagi body shriftidan 20% kattaroq bo'lib, dinamik o'zgaradi */
+}
+
+/* Klassik Tugmalar */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #29447e;
+    text-decoration: none;
+}
+
+.action-btn.copy {
+    background-color: #3b5998;
+    color: #ffffff;
+}
+
+.action-btn.telegram {
+    background-color: #f6f6f6;
+    color: #333333;
+    border: 1px solid #999999;
+}
+
+/* Form hisoboti */
+.submit-section {
+    background-color: #f7f7f7;
+    border: 1px solid #d8dfea;
+    padding: 15px;
+    margin-top: 25px;
+}
+
+.submit-section h3 {
+    font-size: 14px;
+    color: #3b5998;
+    margin-bottom: 5px;
+}
+
+.classic-form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.classic-form input, .classic-form textarea {
+    width: 100%;
+    padding: 6px;
+    margin-top: 3px;
+    border: 1px solid #8496ba;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.submit-btn {
+    background-color: #3b5998;
+    color: white;
+    border: 1px solid #29447e;
+    padding: 6px 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.separator {
+    display: none; /* Ortiqcha chiziqlarni yo'qotamiz */
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 11px;
+    color: #666666;
+    margin-top: 30px;
+    border-top: 1px solid #d8dfea;
+}
+
+/* Media o'tishlari */
+@media (min-width: 600px) {
+    header p {
+        display: block;
+    }
+    .search-form {
+        flex-direction: row;
+    }
+    .search-form input {
+        flex: 3;
+    }
+    .search-form select {
+        flex: 1;
+    }
+}

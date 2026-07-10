@@ -1,0 +1,46 @@
+{{define "content"}}
+<div class="filter-section">
+    <form action="/" method="GET" class="search-form" onsubmit="return false;">
+        <input type="text" name="q" value="{{.Query}}" placeholder="Matndan so'z qidiring... (masalan: qaynona)" id="searchInput" autocomplete="off">
+        
+        <select name="region" id="regionSelect">
+            <option value="">Hamma viloyatlar (Umumiy)</option>
+            <option value="samarqand" {{if eq .Region "samarqand"}}selected{{end}}>Samarqand</option>
+            <option value="toshkent" {{if eq .Region "toshkent"}}selected{{end}}>Toshkent</option>
+            <option value="vodiy" {{if eq .Region "vodiy"}}selected{{end}}>Vodiy</option>
+            <option value="voha" {{if eq .Region "voha"}}selected{{end}}>Voha</option>
+        </select>
+    </form>
+</div>
+
+<div class="poems-list">
+    {{range .Poems}}
+    <div class="poem-card">
+        <h2><a href="/poem/{{.ID}}">{{.Title}}</a></h2>
+        <p class="poem-preview">{{.Content}}</p>
+        <div class="card-footer">
+            <span class="badge">{{.Region}}</span>
+            <a href="/poem/{{.ID}}" class="read-btn">To'liq o'qish va nusxalash &rarr;</a>
+        </div>
+    </div>
+    {{else}}
+    <p class="no-result">Hech qanday matn topilmadi. Onaxon, boshqa so'z yozib ko'ring.</p>
+    {{end}}
+</div>
+
+<hr class="separator">
+
+<div class="submit-section">
+    <h3>Siz ham to'liq Kelin Salom matnini bilasizmi? Yuboring!</h3>
+    <p>Siz yuborgan matn tekshirilib, saytga qo'shiladi.</p>
+    <form action="/submit" method="POST" class="classic-form">
+        <label>Ismingiz yoki hudud:</label>
+        <input type="text" name="author" required placeholder="Masalan: Oygul xola, Samarqand">
+        
+        <label>Kelin salom matni:</label>
+        <textarea name="text" rows="8" required placeholder="Kelin salom she'rini to'liq shu yerga yozing..."></textarea>
+        
+        <button type="submit" class="submit-btn">ADMINISTARTORGA YUBORISH</button>
+    </form>
+</div>
+{{end}}

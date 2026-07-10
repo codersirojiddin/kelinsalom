@@ -1,0 +1,71 @@
+{{define "content"}}
+<div class="poem-single">
+    <a href="/" class="back-link">&larr; Orqaga qaytish</a>
+    
+    <h2 class="poem-page-title">{{.Poem.Title}}</h2>
+    <span class="badge-large">Hudud: {{.Poem.Region}}</span>
+    
+    <div class="poem-full-content" id="poemText">{{.Poem.Content}}</div>
+
+    <div class="action-buttons">
+        <button onclick="copyText(this)" class="action-btn copy">Matnni nusxalash (Copy)</button>
+        <a href="https://t.me/share/url?url=https://kelinsalom.uz/poem/{{.Poem.ID}}&text={{.Poem.Title}}" target="_blank" class="action-btn telegram">Telegramda ulashish</a>
+    </div>
+</div>
+
+<div id="toastNotification" class="toast-style">Matn nusxalandi!</div>
+
+<style>
+.toast-style {
+    visibility: hidden;
+    min-width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 12px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-family: Tahoma, Arial, sans-serif;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+}
+
+.toast-style.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+}
+
+@keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+@keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+</style>
+
+<script>
+function copyText(buttonElement) {
+    const text = document.getElementById("poemText").innerText;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        // Toast bildirishnomasini ko'rsatish
+        const toast = document.getElementById("toastNotification");
+        toast.className = "toast-style show";
+        
+        // Tugma matnini vaqtincha o'zgartirish (qo'shimcha qulaylik)
+        const originalText = buttonElement.innerText;
+        buttonElement.innerText = "Nusxalandi! ✓";
+        buttonElement.style.backgroundColor = "#4b67a4";
+
+        // 2 soniyadan keyin hammasini joyiga qaytarish
+        setTimeout(func => { 
+            toast.className = toast.className.replace("show", ""); 
+            buttonElement.innerText = originalText;
+            buttonElement.style.backgroundColor = "";
+        }, 2000);
+    }).catch(err => {
+        console.error("Xatolik:", err);
+    });
+}
+</script>
+{{end}}

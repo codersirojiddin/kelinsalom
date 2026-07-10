@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "region": "samarqand",
+    "title": "Samarqandcha an'anaviy to'liq kelin salom matni",
+    "content": "Assalomu alaykum ahli jamoat,\nTo'yimizga kelgan aziz mehmonlar...\nAvval boshda ta'zim ila qaynonaonamga,\nUndan keyin davlatimiz qaynotaonamga...",
+    "views": 0
+  },
+  {
+    "id": 2,
+    "region": "toshkent",
+    "title": "Toshkentcha zamonaviy va to'liq kelin salom matni",
+    "content": "Eshik ochib kirgan, qalbi quvonchga to'lgan...\nKuyov bola va barcha aziz qarindoshlarga...\nKelin salom, kelin salom, salomlar bo'lsin!",
+    "views": 0
+  }
+]
