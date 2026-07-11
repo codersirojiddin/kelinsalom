@@ -3,6 +3,8 @@ package data
 import (
 	"encoding/json"
 	"os"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 )
@@ -20,15 +22,55 @@ var (
 	once     sync.Once
 )
 
+func resolvePoemsPath() string {
+	var candidates []string
+
+	if cwd, err := os.Getwd(); err == nil {
+		candidates = append(candidates, filepath.Join(cwd, "db", "poems.json"))
+	}
+
+	if _, file, _, ok := runtime.Caller(0); ok {
+		baseDir := filepath.Dir(file)
+		for dir := baseDir; ; dir = filepath.Dir(dir) {
+			candidates = append(candidates, filepath.Join(dir, "db", "poems.json"))
+			parent := filepath.Dir(dir)
+			if parent == dir {
+				break
+			}
+		}
+	}
+
+	if exe, err := os.Executable(); err == nil {
+		candidates = append(candidates, filepath.Join(filepath.Dir(exe), "db", "poems.json"))
+	}
+
+	for _, candidate := range candidates {
+		if info, err := os.Stat(candidate); err == nil && !info.IsDir() {
+			return candidate
+		}
+	}
+
+	return ""
+}
+
 // LoadPoems JSON faylni RAMga yuklaydi
 func LoadPoems() []Poem {
 	once.Do(func() {
-		file, err := os.ReadFile("db/poems.json")
+		path := resolvePoemsPath()
+		if path == "" {
+			Instance = []Poem{}
+			return
+		}
+
+		file, err := os.ReadFile(path)
 		if err != nil {
 			Instance = []Poem{}
 			return
 		}
-		_ = json.Unmarshal(file, &Instance)
+		if err := json.Unmarshal(file, &Instance); err != nil {
+			Instance = []Poem{}
+			return
+		}
 	})
 	return Instance
 }
