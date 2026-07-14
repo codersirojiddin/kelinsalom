@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	handler "kelinsalom/api" // Vercel handlerlarini import qilamiz
 	"log"
 	"net/http"
-	handler "kelinsalom/api" // Vercel handlerlarini import qilamiz
 )
 
 func main() {
@@ -13,6 +13,10 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// 2. Vercel handlerlarini tegishli URL'larga bog'laymiz
+	http.HandleFunc("/ads.txt", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		_, _ = w.Write([]byte("google.com, pub-4819817034021416, DIRECT, f08c47fec0942fa0\n"))
+	})
 	http.HandleFunc("/", handler.IndexHandler)
 	http.HandleFunc("/poem/", handler.PoemHandler)
 	http.HandleFunc("/submit", handler.SubmitHandler)

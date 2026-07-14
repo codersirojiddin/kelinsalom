@@ -1,6 +1,7 @@
 {
   "version": 2,
   "routes": [
+    { "src": "/ads.txt", "dest": "/ads.txt" },
     { "src": "/static/(.*)", "dest": "/static/$1" },
     { "src": "/sitemap.xml", "dest": "/api/index.go?sitemap=true" },
     { "src": "/poem/(?<id>[0-9]+)", "dest": "/api/poem.go?id=$id" },
