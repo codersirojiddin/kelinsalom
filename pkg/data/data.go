@@ -1,6 +1,7 @@
 package data
 
 import (
+	_ "embed"
 	"encoding/json"
 	"os"
 	"path/filepath"
@@ -21,6 +22,9 @@ var (
 	Instance []Poem
 	once     sync.Once
 )
+
+//go:embed poems.json
+var embeddedPoems []byte
 
 func resolvePoemsPath() string {
 	var candidates []string
@@ -57,17 +61,19 @@ func resolvePoemsPath() string {
 func LoadPoems() []Poem {
 	once.Do(func() {
 		path := resolvePoemsPath()
-		if path == "" {
-			Instance = []Poem{}
-			return
+		data := embeddedPoems
+
+		if path != "" {
+			if file, err := os.ReadFile(path); err == nil {
+				data = file
+			}
 		}
 
-		file, err := os.ReadFile(path)
-		if err != nil {
+		if len(data) == 0 {
 			Instance = []Poem{}
 			return
 		}
-		if err := json.Unmarshal(file, &Instance); err != nil {
+		if err := json.Unmarshal(data, &Instance); err != nil {
 			Instance = []Poem{}
 			return
 		}
