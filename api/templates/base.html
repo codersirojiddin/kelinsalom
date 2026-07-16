@@ -9,6 +9,7 @@
     <meta name="description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}O'zbekona to'ylar uchun eng sara, to'liq va an'anaviy kelin salom matnlari. Viloyatlar bo'yicha qulay qidiruv va nusxalash.{{end}}">
     <meta name="keywords" content="kelin salom, kelin salom sherlari, to'liq kelin salom matni, samarqandcha kelin salom, toshkentcha kelin salom">
     <meta name="robots" content="index, follow">
+    <meta name="author" content="KelinSalom">
 
     <!-- Open Graph (Facebook, Telegram, WhatsApp uchun professional ko'rinish) -->
     <meta property="og:type" content="website">
@@ -16,31 +17,15 @@
     <meta property="og:description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}To'ylar uchun eng sara, to'liq va an'anaviy kelin salom matnlari.{{end}}">
     <meta property="og:url" content="https://kelinsalom.uz{{.URLPath}}">
     <meta property="og:site_name" content="KelinSalom.uz">
-    
-    <!-- Birlamchi Meta Teglar -->
-    <title>{{ if .Title }}{{ .Title }} — KelinSalom.uz{{ else }}Kelin Salom Matnlari, She'rlari va Ssenariylari — KelinSalom.uz{{ end }}</title>
-    <meta name="title" content="{{ if .Title }}{{ .Title }}{{ else }}Kelin Salom Matnlari, She'rlari va Ssenariylari{{ end }}">
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}O'zbekona to'y marosimlari uchun eng sara kelin salom she'rlari, ssenariylari va matnlari. Samarqandcha, Toshkentcha, Vodiycha an'anaviy kelin salomlar to'plami.{{ end }}">
-    <meta name="keywords" content="kelin salom she'rlari, kelin salom matnlari, o'zbekcha kelin salom, samarqandcha kelin salom, toshkentcha kelin salom, vodiycha kelin salom, kelin salom ssenariysi, kelinsalom vercel">
-    <meta name="author" content="KelinSalom">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph / Facebook (Ijtimoiy tarmoqlarda ulashganda chiroyli ko'rinishi uchun) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kelinsalom.vercel.app{{ .CurrentPath }}">
-    <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}Kelin Salom Matnlari va She'rlari to'plami{{ end }}">
-    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}O'zbekona to'y marosimlari uchun eng sara kelin salom she'rlari, ssenariylari va matnlari bir joyda!{{ end }}">
-    <meta property="og:image" content="https://kelinsalom.vercel.app/static/img/og-image.png"> <!-- Sayt logotipi yoki chiroyli rasm yo'li -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kelinsalom.vercel.app{{ .CurrentPath }}">
-    <meta property="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}Kelin Salom Matnlari va She'rlari to'plami{{ end }}">
-    <meta property="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}O'zbekona to'y marosimlari uchun eng sara kelin salom she'rlari bir joyda!{{ end }}">
-    <meta property="twitter:image" content="https://kelinsalom.vercel.app/static/img/og-image.png">
+    <meta property="twitter:url" content="https://kelinsalom.uz{{.URLPath}}">
+    <meta property="twitter:title" content="{{if .PageTitle}}{{.PageTitle}}{{else}}Kelin Salom Matnlari To'plami{{end}}">
+    <meta property="twitter:description" content="{{if .MetaDesc}}{{.MetaDesc}}{{else}}To'ylar uchun eng sara, to'liq va an'anaviy kelin salom matnlari.{{end}}">
 
-    <!-- Canonical Link (Dublikat sahifalar muammosini oldini olish uchun) -->
-    <link rel="canonical" href="https://kelinsalom.vercel.app{{ .CurrentPath }}">
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://kelinsalom.uz{{.URLPath}}">
 
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
